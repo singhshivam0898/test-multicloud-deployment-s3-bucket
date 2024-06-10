@@ -12,25 +12,25 @@ variables:
     value: mybucket-$(uniqueId)
  
 steps:
-# Step 1: Install Python.
+# Step 1: Install Python
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.x'
  
-# Step 2: Install AWS CLI.
+# Step 2: Install AWS CLI
 - script: |
     python -m pip install --upgrade pip
     pip install awscli
   displayName: 'Install AWS CLI'
  
-# Step 3: Configure AWS CLI.
+# Step 3: Configure AWS CLI
 - script: |
     aws configure set aws_access_key_id $(AWS_ACCESS_KEY_ID)
     aws configure set aws_secret_access_key $(AWS_SECRET_ACCESS_KEY)
     aws configure set default.region ap-south-1
   displayName: 'Configure AWS credentials'
  
-# Step 4: Create S3 Bucket.
+# Step 4: Create S3 Bucket
 - script: |
     aws s3 mb s3://$(bucketName)
   displayName: 'Create S3 Bucket'
