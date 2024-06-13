@@ -9,7 +9,7 @@ variables:
   - name: uniqueId
     value: $(Build.BuildId)
   - name: bucketName
-    value: mybucket-$(uniqueId)
+    value: ssbucket-$(uniqueId)
  
 steps:
 # Step 1: Install Python.
