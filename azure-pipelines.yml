@@ -12,12 +12,12 @@ variables:
     value: mybucket-$(uniqueId)
  
 steps:
-# Step 1: Install Python
+# Step 1: Install Python.
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.x'
  
-# Step 2: Install AWS CLI
+# Step 2: Install AWS CLI.
 - script: |
     python -m pip install --upgrade pip
     pip install awscli
